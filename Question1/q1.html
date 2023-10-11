@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 1</title>
+    <script>
+        var userObj = [{username:"Prakash", password:"123" ,age:33},{username:"Manoj", password:"123" ,age:35}];
+    </script>
+</head>
+<body>
+    <input type="text" name="username" id="uname" placeholder="Username"><br><br>
+    <input type="text" name="password" id="password" placeholder="Password"><br><br>
+    <button type="button" onclick="checkCredentials()">Login</button>
+    <script>
+        function checkCredentials(){
+            var a = document.getElementById("uname").value;
+            var b = document.getElementById("password").value;
+            var flag = false;
+            for(var i=0;i<userObj.length;i++){
+                if(userObj[i].username == a && userObj[i].password == b){
+                    flag = true;
+                    break;
+                }
+            }
+            if(flag){
+                alert("Login Successfull");
+            }else{  
+                alert("Login Failed");
+            }
+        }
+    </script>
+</body>
+</html>

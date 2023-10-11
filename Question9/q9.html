@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question9</title>
+    <script src="../angular/angular.js"></script>
+</head>
+
+<body>
+    <div ng-app="myapp" ng-controller="myCtrl">
+        {{info}}
+    </div>
+
+    <script>
+        let mymodule = angular.module("myapp", []);
+        mymodule.controller('myCtrl', function ($scope) {
+            $scope.info = "Hello Buddy";
+        });
+    </script>
+</body>
+
+</html>

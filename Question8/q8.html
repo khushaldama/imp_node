@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <script src="angular.js"></script>
+</head>
+<body>
+<div ng-app="myapp" ng-controller="myCtrl">
+    <div>
+      <label>Amount:</label>
+      <input type="number" ng-model="amount" ng-change="convertCurrency()">
+    </div>
+    <div>
+      <label>From Currency:</label>
+      <select ng-model="fromCurrency" ng-change="convertCurrency()">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+      </select>
+    </div>
+    <div>
+      <label>To Currency:</label>
+      <select ng-model="toCurrency" ng-change="convertCurrency()">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+      </select>
+    </div>
+    <div>
+      <p>{{ amount }} {{ fromCurrency }} is equal to {{ convertedAmount | number:2 }} {{ toCurrency }}</p>
+    </div>
+  </div>
+  <script src="q8.js"></script>
+</body>
+</html>
+  

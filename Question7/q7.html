@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fourth</title>
+    <script src="../angular/angular.js"></script>
+</head>
+<body ng-app ng-init="items=[{'itemName':'Pencil','itemPrice':5},{'itemName':'Eraser','itemPrice':3},{'itemName':'Scale','itemPrice':10}];">    
+    List of the items:
+    <ol>
+        <li ng-repeat="item in items track by $index">{{items[$index].itemName}}</li>
+    </ol>
+    <input type="number" ng-model="in" value="0" placeholder="Enter the no of item"><br>
+    Selected Value is {{items[in-1].itemName}}
+</body>
+</html>

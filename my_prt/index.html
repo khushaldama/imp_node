@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <script src="angular.js"></script>
+</head>
+<body>
+    <h1>HELLO WORD</h1>
+    <div ng-app="myapp"  ng-controller="myCtrl">
+        <input type="text" ng-model="search">
+        <table border="1">
+            <tr>
+                <td>name</td>
+                <td>age</td>
+                <td>gender</td>
+                <td>image</td>
+                <td>image price</td>
+
+            </tr>
+        <tr ng-repeat="task in itemes | filter: search">
+            <td>{{task.Name}}</td>
+            <td>{{task.age}}</td>
+            <td>{{task.gender}}</td>
+            <td><img src="{{task.path}}" alt="" style="height: 100px; width: 100px;"></td>
+            <td>{{task.price |currency:'&#8377':0}}</td>
+
+
+
+        </tr>
+    </table>
+    </div>
+    <script src="controller.js"></script>
+
+    
+</body>
+</html>

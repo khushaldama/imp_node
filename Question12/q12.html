@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question12</title>
+    <script src="../angular/angular.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <input type="text" ng-model="search"><br>
+    <div>
+        <input type="radio" ng-model="order" value="pname" name="order">
+        <label>Ascending</label>
+    </div>
+    <div>
+        <input type="radio" ng-model="order" value="-pname" name="order">
+        <label>Descending</label>
+    </div>
+
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr ng-repeat="x in filteredItems = (items | limitTo: itemsPerPage : (currentPage * itemsPerPage)) | orderBy:order | filter:search">
+            <td>{{x.pname}}</td>
+            <td>{{x.pprice}}</td>
+        </tr>
+    </table>
+    
+    <button ng-click="previousPage()">Previous Page</button>
+    <button ng-click="nextPage()">Next Page</button>
+    <script src="./q12.js"></script>
+</body>
+</html>

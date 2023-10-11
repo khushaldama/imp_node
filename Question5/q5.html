@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second</title>
+    <script src="../angular/angular.js"></script>
+</head>
+
+<body ng-app>
+    <input type="text" ng-model="message"><br>
+    Text Color:<input type="color" ng-model="color"><br>
+    Background Color:<input type="color" ng-model="bgcolor"><br>
+
+    <h1
+        style="color:{{color}};background-color: {{bgcolor}};">
+        {{message}}</h1>
+</body>
+
+</html>

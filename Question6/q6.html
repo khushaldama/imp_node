@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fourth</title>
+    <script src="../angular/angular.js"></script>
+</head>
+<body ng-app ng-init="items=[{'itemName':'Pencil','itemPrice':5},{'itemName':'Eraser','itemPrice':3},{'itemName':'Scale','itemPrice':10}];">
+    Select Item: <br>   
+    <select name="item" ng-model="index" style="width: 170px;height: 40;margin-top: 5px;margin-bottom: 10px;">
+        <option ng-repeat="item in items track by $index" value="{{$index}}">{{items[$index].itemName}}</option>
+    </select><br>
+    <input type="number" ng-model="quantity" placeholder="Qunatity" value="0" style="margin-bottom: 10px;">
+
+    <table border="1" style="text-align: center;">
+        <tr>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Total</td>
+        </tr>
+        <tr>
+            <td>{{items[index].itemName}}</td>
+            <td>{{items[index].itemPrice}}</td>
+            <td>{{quantity}}</td>
+            <td>{{quantity*items[index].itemPrice}}</td>
+        </tr>
+    </table>
+</body>
+</html>

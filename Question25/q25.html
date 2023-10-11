@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question25</title>
+    <script src="angular.js"></script>
+</head>
+<body>
+    <div ng-app="myapp" ng-controller="myCtrl">
+        <table border="1">
+            <tr>
+                <td>Task Name</td>
+                <td>Task Status</td>
+            </tr>
+            <tr ng-repeat="item in tasks">
+                <td>{{item.task}}</td>
+                <td>{{item.status}}</td>
+                <td><button type="button" ng-click="updateTask(item)">Update</button></td>
+                <td><button type="button" ng-click="deleteTask(item)">Delete</button></td>
+            </tr>
+        </table>
+        <div>
+            <input type="text" ng-model="task"><br>
+            <input type="checkbox" ng-model="status" ng-checked="myCheckbox"><br>
+            <button type="button" ng-click="addTask()" id="formbutton1">Submit</button>
+            <button type="button" ng-click="updateTaskData()" style="display: none;" id="formbutton2">Update</button>
+        </div>
+    </div>
+
+    <script src="q25.js"></script>
+</body>
+</html>

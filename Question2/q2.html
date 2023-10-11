@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question-2</title>
+</head>
+
+<body>
+    <div>
+        <input type="text" name="username" id="uname" placeholder="Username"><br><br>
+        <input type="text" name="password" id="password" placeholder="Password"><br><br>
+        <input type="text" name="age" id="age" placeholder="age"><br><br>
+        <button type="button" id="btnForm" onclick="addUser()">Add User</button>
+    </div>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody id="userDetails">
+
+        </tbody>
+    </table>
+
+    <script>
+        var userData = [
+            {
+                username: "Prakash",
+                password: "123",
+                age: 33
+            },
+            {
+                username: "Manoj",
+                password: "123",
+                age: 35
+            }
+        ];
+        let string = "";
+        for (let i = 0; i < userData.length; i++) {
+            string += "<tr><td>" + userData[i].username + "</td><td>" + userData[i].password + "</td><td>" + userData[i].age + "</td><td><button type='button' onclick='updateUserDetails(" + i + ")'>Update</button></td><td><button type='button' onclick='deleteUserDetails(" + i + ")'>Delete</button></td></tr>";
+        }
+        document.getElementById("userDetails").innerHTML = string;
+
+        function updateUserDetails(indexValue) {
+            document.getElementById("uname").value = userData[indexValue].username;
+            document.getElementById("password").value = userData[indexValue].password;
+            document.getElementById("age").value = userData[indexValue].age;
+            document.getElementById("btnForm").innerHTML = "Update";
+            document.getElementById("btnForm").setAttribute("name", indexValue);
+            document.getElementById("btnForm").setAttribute("onclick", "updateUser(this.name)");
+        }
+
+        function deleteUserDetails(indexValue) {
+            if (confirm("Are you sure you want to delete?")) {
+                userData.splice(indexValue, 1);
+                updateList();
+            }
+        }
+
+        function updateUser(index) {
+            userData[index].username = document.getElementById("uname").value;
+            userData[index].password = document.getElementById("password").value;
+            userData[index].age = document.getElementById("age").value;
+            document.getElementById("uname").value = "";
+            document.getElementById("password").value = "";
+            document.getElementById("age").value = "";
+            document.getElementById("btnForm").innerHTML = "Add User";
+            document.getElementById("btnForm").setAttribute("onclick", "addUser()");
+            updateList();
+        }
+
+        function updateList() {
+            console.log(userData);
+            let string = "";
+            for (let i = 0; i < userData.length; i++) {
+                string += "<tr><td>" + userData[i].username + "</td><td>" + userData[i].password + "</td><td>" + userData[i].age + "</td><td><button type='button' onclick='updateUserDetails(" + i + ")'>Update</button></td><td><button type='button' onclick='deleteUserDetails(" + i + ")'>Delete</button></td></tr>";
+            }
+            document.getElementById("userDetails").innerHTML = string;
+        }
+
+        function addUser(){
+            let obj = {
+                username: document.getElementById("uname").value,
+                password: document.getElementById("password").value,
+                age: document.getElementById("age").value
+            };
+            userData.push(obj);
+            document.getElementById("uname").value = "";
+            document.getElementById("password").value = "";
+            document.getElementById("age").value = "";
+            updateList();
+        }
+    </script>
+</body>
+</html>

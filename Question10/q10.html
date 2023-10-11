@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question10</title>
+    <script src="angular.js"></script>
+</head>
+
+<body ng-app="myApp">
+    
+    <div ng-controller="myCtrl">
+        <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Age</th>
+            </tr>
+            <tr ng-repeat="student in stud track by $index">
+                <td>{{student.id}}</td>
+                <td>{{student.sname}}</td>
+                <td>{{student.course}}</td>
+                <td>{{student.age}}</td>
+                <td><button type="button" ng-click="ShowResult(student)">Show Results</button></td>
+            </tr>
+
+            
+        </table>
+        <p>Awd: {{s1}}  {{g1}}</p>
+        <p>Iot: {{s2}}  {{g2}}</p>
+        <p>GC: {{s3}}  {{g3}}</p>
+        <div ng-if="g1 != 'FF' && g2 != 'FF' && g3 != 'FF'">
+            <p>Total: {{total}}</p>
+            <p>Percentage: {{percentage}}</p>
+        </div>
+        <hr>
+
+        <select ng-model="StudentDetail" ng-options="student.id group by student.age for student in stud"></select>
+
+        <p>Student Id: {{StudentDetail.id}}</p>
+        <p>Student Name: {{StudentDetail.sname}}</p>
+        <p>Student Total: {{StudentDetail.awd+StudentDetail.iot+StudentDetail.gc}}</p>
+        <div ng-if="StudentDetail.awd < 45 || StudentDetail.iot < 45 || StudentDetail.gc < 45">
+            <p>Result: Fail</p>
+        </div>
+
+        <div ng-if="StudentDetail.awd > 45 && StudentDetail.iot > 45 && StudentDetail.gc > 45">
+            <p>Result: Pass</p>
+        </div>
+    </div>
+    <script src="q10.js"></script>
+</body>
+
+</html>

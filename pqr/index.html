@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.js"></script>
+</head>
+<body>
+    <div ng-app="myapp" ng-controller="myCtrl">
+        <table border="1">
+            <tr>
+                <td>Name</td>
+                <td>age</td>
+            </tr>
+            <tr ng-repeat="item in tasks">
+                <td>{{item.Name}}</td>
+                <td>{{item.age}}</td>
+                <td><button type="button" ng-click="updateTask(item)">Update</button></td>
+                <td><button type="button" ng-click="deleteTask(item)">Delete</button></td>
+               
+            </tr>
+        </table>
+    </div>
+
+      
+    
+    <script src="controller.js"></script>
+</body>
+</html>
