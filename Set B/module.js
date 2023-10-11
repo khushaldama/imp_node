@@ -1,4 +1,14 @@
 var app = angular.module("myApp",[])
+angular.module('myApp').filter('yearOnly', function() {
+    return function(input) {
+        if (input) {
+            var year = new Date(input).getFullYear();
+            return year;
+        }
+        return "";
+    };
+});
+
 app.controller("myCTRL",($scope,$http)=>{
     $scope.list=[]
     $scope.newData={}

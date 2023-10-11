@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>Book Store</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.js"
         integrity="sha512-klc+qN5PPscoGxSzFpetVsCr9sryi2e2vHwZKq43FdFyhSAa7vAqog/Ifl8tzg/8mBZiG2MAKhyjH5oPJp65EA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -21,7 +21,7 @@
             <thead>
                 <tr>
                     <th>book_id</th>
-                    <th>Title</th>
+                    <th>Title <a href="#" ng-click="sortOrder = (sortOrder === 'asc' ? 'desc' : 'asc')">Sort</a></th>
                     <th>Auther</th>
                     <th>PublishDate</th>
                     <th>Price</th>
@@ -29,11 +29,11 @@
                     <th>Category</th>
                     <th>Total</th>
                 </tr>
-                <tr ng-repeat="i in list | orderBy: -'title' | filter: search">
+                <tr ng-repeat="i in list | orderBy: 'title' : (sortOrder === 'asc' ? false : true) | filter: search">
                     <td>{{i.BookId}}</td>
                     <td>{{i.title}}</td>
                     <td>{{i.Author}}</td>
-                    <td>{{i.publishDate}}</td>
+                    <td>{{i.publishDate | yearOnly }}</td>
                     <td>{{i.price}}</td>
                     <td>
                         <input type="number" ng-model="qty">

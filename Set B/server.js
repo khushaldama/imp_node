@@ -37,21 +37,26 @@ app.get("/api/book", function (req, res) {
 
 app.post("/api/add", function (req, res) {
 
-    console.log(req.body.bookID)
-    book.create({
-        BookId: req.body.bookID,
-        title: req.body.title,
-        Author: req.body.author,
-        publishDate: req.body.pdate,
-        category: req.body.category,
-        price: req.body.price,
-    }).then((newItem) => {
-        console.log(newItem)
-        res.json(newItem)
-    }, (err) => {
-        res.json(err);
-        console.log('Error')
-    })
+    if(req.body.price<500){
+        res.send("<script>alert('price should be greater thasn 500');</script>")
+    }
+    else{
+        book.create({
+            BookId: req.body.bookID,
+            title: req.body.title,
+            Author: req.body.author,
+            publishDate: req.body.pdate,
+            category: req.body.category,
+            price: req.body.price,
+        }).then((newItem) => {
+            console.log(newItem)
+            res.json(newItem)
+        }, (err) => {
+            res.json(err);
+            console.log('Error')
+        })
+    }
+    
 })
 
 app.listen("5500", function () {

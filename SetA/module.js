@@ -17,8 +17,21 @@ app.controller("myCTRL",($scope, $http)=>{
         $scope.sto = item.storage;
     }
 
+    // $scope.delete = function(item) {
+    //     if (item.qty == 0) {
+    //         // Send an HTTP request to delete the mobile record
+    //         $http.delete(`/api/mobile/${item.MobileID}`).then(function(response){ 
+    //                     $scope.list = response.data 
+    //                     $scope.getData(); 
+    //                     })   
+    //     } else {
+    //         alert('Cannot delete a mobile with quantity greater than 0.');
+    //     }
+    // }
+
     $scope.delete = (item) =>{
-        $http.delete(`/api/mobile/${item.mobileId}`).then(function(response){ 
+       // console.log(item)
+        $http.delete(`/api/mobile/${item.MobileID}`).then(function(response){ 
             $scope.list = response.data 
             $scope.getData(); 
             }) 

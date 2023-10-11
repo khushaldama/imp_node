@@ -13,16 +13,16 @@ conn.on('connected',function(){
 }) 
 
 const mobileSchema = new mongoose.Schema({
-    mobileId: String, 
+    mobileID: String,
     name: String,
     brand: String,
-    price: Number,
+    price: String,
     processor: String,
     storage: String,
     image: String,
-    quantity: Number
+    quantity: String
   });
-const mobile = mongoose.model("mobile",mobileSchema,"Mobile");
+const mobile = mongoose.model("Mobile",mobileSchema,"Mobile");
 
 
 app.get("/",function(req, res){
@@ -37,8 +37,8 @@ app.get("/api/mobile", function(req, res){
 
 app.delete("/api/mobile/:id", function(req, res){
     const id = req.params.id 
-        mobile.deleteOne({mobileId:id}).then((err,data)=>{ 
-        res.json(data) 
+        mobile.deleteOne({MobileID:id}).then((err,data)=>{ 
+         res.json(data) 
     })
 })
 
